@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import fetchAddCoffee from "./fetchAddCoffee";
+import fetchAddCoffee from "./js_fetchCoffeesFuncs/fetchAddCoffee";
 
 function AjouterCoffee() {
   return (
@@ -48,7 +48,7 @@ function AjouterCoffee() {
           Submit
         </Button>
 
-        <Link to="/">
+        <Link to="/coffees/">
           <Button variant="secondary">Arrière</Button>
         </Link>
       </Form>

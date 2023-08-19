@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
 
 import { Button, Row, Col } from "react-bootstrap";
-import Coffee from "./Coffee";
+import Coffee from "./coffees_tp1/Coffee";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import fetchGetAllCoffees from "./coffees_tp1/js_fetchCoffeesFuncs/fetchGetAllCoffees";
 
 const Page_coffees = () => {
   const [coffees, setCoffees] = useState([]);
 
   useEffect(() => {
-    fetch(`https://insta-api-api.0vxq7h.easypanel.host/coffees`)
-      .then((res) => res.json())
-      .then((coffees) => setCoffees(coffees));
+    fetchGetAllCoffees(setCoffees);
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { Row, Col } from "react-bootstrap";
-import Category from "./Category";
+import Category from "./products_tp2/categories/Category";
 import { useState, useEffect } from "react";
 
 const Page_categories = () => {

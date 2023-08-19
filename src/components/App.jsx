@@ -5,12 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Header from "./Header";
-import CoffeeDetails from "./CoffeeDetails";
-import AjouterCoffees from "./AjouterCoffee";
-import Footer from "./Footer";
-import CategoryDetails from "./CategoryDetails";
-import ProductDetails from "./ProductDetails";
+import CoffeeDetails from "./coffees_tp1/CoffeeDetails";
+import AjouterCoffees from "./coffees_tp1/AjouterCoffee";
 import Page_coffees from "./Page_coffees";
+import Footer from "./Footer";
+import CategoryDetails from "./products_tp2/categories/CategoryDetails";
+import ProductDetails from "./products_tp2/products/ProductDetails";
 import Page_categories from "./Page_categories";
 import Page_AllProducts from "./Page_AllProducts";
 

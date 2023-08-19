@@ -2,36 +2,31 @@
 /* eslint-disable react/prop-types */
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import fetchRequestCategories from "./products_tp2/js_fetchProductsFuncs/fetchRequestCategories";
 
 function Header() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch(`https://insta-api-api.0vxq7h.easypanel.host/product-categories`)
-      .then((res) => res.json())
-      .then((categories) => {
-        setCategories(categories);
-      });
+    fetchRequestCategories(setCategories);
   }, []);
 
   return (
     <header>
       <Navbar expand="lg" className="bg-body-tertiary">
-        <Link to="/">
-          <Navbar.Brand>HOME</Navbar.Brand>
-        </Link>
+        <Navbar.Brand href="/">HOME</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/all-products/">All products</Nav.Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
               {categories.map((category) => (
-                <Link to={`/category-details/${category.id}`} key={category.id}>
-                  <NavDropdown.Item href="###">
-                    {category.name}
-                  </NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item
+                  href={`/category-details/${category.id}`}
+                  key={category.id}
+                >
+                  {category.name}
+                </NavDropdown.Item>
               ))}
             </NavDropdown>
             <Nav.Link href="/coffees/">Coffees TP1</Nav.Link>

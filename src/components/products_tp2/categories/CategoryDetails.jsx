@@ -1,32 +1,13 @@
 import { useParams } from "react-router-dom";
-// import { useQuery } from "@tanstack/react-query";
-// import fetchGetAllProductList from "./fetchGetAllProductList";
-// import { Spinner } from "react-bootstrap";
-import Product from "./Product";
+import Product from "../products/Product";
 import { Row, Col } from "react-bootstrap";
-import AllProductColors from "./AllProductColors";
+import AllProductColors from "../products/AllProductColors";
 import { useState, useEffect } from "react";
 
 const CategoryDetails = () => {
   const { id } = useParams();
   const [colorId, setColorId] = useState(null);
   const [categoryName, setCategoryName] = useState("");
-
-  // const results = useQuery([], fetchGetAllProductList);
-
-  // if (results.isError) {
-  //   return <h1>Error! Coffee details are not found</h1>;
-  // }
-
-  // if (results.isLoading) {
-  //   return (
-  //     <div className="loading-pane">
-  //       <Spinner animation="border" variant="primary" />
-  //     </div>
-  //   );
-  // }
-
-  // const products = results.data;
 
   const [products, setProducts] = useState([]);
 
@@ -45,8 +26,6 @@ const CategoryDetails = () => {
         )
       );
   });
-
-  // console.log(colorId);
 
   return (
     <>

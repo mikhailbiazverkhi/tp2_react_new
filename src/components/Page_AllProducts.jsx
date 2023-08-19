@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "react-bootstrap";
-import Product from "./Product";
+import Product from "./products_tp2/products/Product";
 import { Row, Col } from "react-bootstrap";
 import { useState } from "react";
 
-import fetchGetAllProductList from "./fetchGetAllProductList";
-import AllProductColors from "./AllProductColors";
+import fetchGetAllProductList from "./products_tp2/js_fetchProductsFuncs/fetchGetAllProductList";
+import AllProductColors from "./products_tp2/products/AllProductColors";
 
 const Page_AllProducts = () => {
   const [colorId, setColorId] = useState(null);

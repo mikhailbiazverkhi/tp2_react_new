@@ -7,7 +7,7 @@ const fetchGetAllProductList = async () => {
     throw new Error(`details fetch not ok`);
   }
 
-  return apiRes.json(); // Promise
+  return await apiRes.json(); // Promise
 };
 
 export default fetchGetAllProductList;
