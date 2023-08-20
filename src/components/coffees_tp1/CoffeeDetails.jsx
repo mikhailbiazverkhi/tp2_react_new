@@ -24,13 +24,18 @@ const CoffeeDetails = () => {
   const coffee = results.data;
 
   return (
-    /////////////////////////////////////////////////////
-    ///trouver Bootstrap
-    <div>
+    <div className="coffee-details">
       <h1>{coffee.name}</h1>
-      <img src={coffee.pictureUrl} />
-      <h3>Description: {coffee.description}</h3>
-      <div className="d-flex justify-content-between">
+
+      <div className="d-flex flex-wrap" style={{ gap: "30px" }}>
+        <img className="image-coffee" src={coffee.pictureUrl} />
+        <div>
+          <h3>Description: </h3>
+          <h4>{coffee.description}</h4>
+        </div>
+      </div>
+
+      <div className="d-flex" style={{ gap: "50px" }}>
         <Button variant="danger" onClick={() => supprimerCoffee(id)}>
           Supprimer
         </Button>
