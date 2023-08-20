@@ -19,17 +19,19 @@ const Page_categories = () => {
       {!categories.length ? (
         <h1>No Categories found</h1>
       ) : (
-        <Row>
+        <>
           {categories.map((product) => (
-            <Col className="colonne my-3" key={product.id}>
-              <Category
-                id={product.id}
-                name={product.name}
-                description={product.description}
-              />
-            </Col>
+            <Row key={product.id}>
+              <Col className="colonne my-3">
+                <Category
+                  id={product.id}
+                  name={product.name}
+                  description={product.description}
+                />
+              </Col>
+            </Row>
           ))}
-        </Row>
+        </>
       )}
     </>
   );

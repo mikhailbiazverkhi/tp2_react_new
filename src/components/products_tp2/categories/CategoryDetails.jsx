@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import Product from "../products/Product";
 import { Row, Col } from "react-bootstrap";
 import AllProductColors from "../products/AllProductColors";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import SearchProductContext from "../SearchProductContext";
 
 const CategoryDetails = () => {
   const { id } = useParams();
@@ -11,11 +12,15 @@ const CategoryDetails = () => {
 
   const [products, setProducts] = useState([]);
 
+  const { searchProduct } = useContext(SearchProductContext);
+
   useEffect(() => {
-    fetch(`https://insta-api-api.0vxq7h.easypanel.host/products`)
+    fetch(
+      `https://insta-api-api.0vxq7h.easypanel.host/products?search=${searchProduct}`
+    )
       .then((res) => res.json())
       .then((products) => setProducts(products));
-  }, [colorId]);
+  }, [colorId, searchProduct]);
 
   useEffect(() => {
     fetch(`https://insta-api-api.0vxq7h.easypanel.host/product-categories`)

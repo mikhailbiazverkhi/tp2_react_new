@@ -2,14 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "react-bootstrap";
 import Product from "./products_tp2/products/Product";
 import { Row, Col } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import SearchProductContext from "./products_tp2/SearchProductContext";
 
 import fetchGetAllProductList from "./products_tp2/js_fetchProductsFuncs/fetchGetAllProductList";
 import AllProductColors from "./products_tp2/products/AllProductColors";
 
 const Page_AllProducts = () => {
   const [colorId, setColorId] = useState(null);
-  const results = useQuery([], fetchGetAllProductList);
+  const { searchProduct } = useContext(SearchProductContext);
+  const results = useQuery(["search", searchProduct], fetchGetAllProductList);
 
   if (results.isError) {
     return <h1>Error! Coffee details are not found</h1>;

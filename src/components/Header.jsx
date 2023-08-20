@@ -3,6 +3,7 @@
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import fetchRequestCategories from "./products_tp2/js_fetchProductsFuncs/fetchRequestCategories";
+import SearchProduct from "./products_tp2/products/SearchProduct";
 
 function Header() {
   const [categories, setCategories] = useState([]);
@@ -32,6 +33,10 @@ function Header() {
             <Nav.Link href="/coffees/">Coffees TP1</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        {window.location.pathname !== "/coffees/" &&
+          window.location.pathname !== "/ajouter/" &&
+          !window.location.pathname.includes("/coffee-details/") &&
+          window.location.pathname !== "/" && <SearchProduct />}
       </Navbar>
     </header>
   );

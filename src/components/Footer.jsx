@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="footer">
+    <footer>
       @ {new Date().getFullYear()} <b>Travail pratique 2</b>
     </footer>
   );

@@ -26,16 +26,29 @@ const ProductDetails = () => {
   return (
     /////////////////////////////////////////////////////
     ///trouver Bootstrap
-    <div>
+    <div className="product-details">
       <h1>{product.name}</h1>
       <h3>{product.category.name}</h3>
-      <img src={product.image} />
-      <h4>{product.description}</h4>
-      <div
+
+      <div className="d-flex" style={{ gap: "10px" }}>
+        <img className="image-product" src={product.image} />
+        <div>
+          <h3>Couleur: </h3>
+          <div
+            className="product-color"
+            style={{ backgroundColor: product.color.hexCode }}
+          ></div>
+          <h3>Description: </h3>
+          <h4>{product.description}</h4>
+        </div>
+      </div>
+      {/* <div
         className="product-color"
         style={{ backgroundColor: product.color.hexCode }}
       ></div>
-      <div className="d-flex justify-content-between">
+      <h4>{product.description}</h4> */}
+
+      <div className="d-flex justify-content-center">
         <Link to={`/category-details/${product.category.id}`}>
           <Button variant="secondary">Arrière</Button>
         </Link>
