@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Spinner, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import fetchGetProduct from "../js_fetchProductsFuncs/fetchGetProduct";
+import AddToCart from "../panier/addToCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const ProductDetails = () => {
 
       <div className="d-flex flex-wrap" style={{ gap: "10px" }}>
         <img className="image-product" src={product.image} />
-        <div>
+        <div className="d-flex flex-column" style={{ gap: "10px" }}>
           <h3>Couleur: </h3>
           <div
             className="product-color"
@@ -38,6 +39,7 @@ const ProductDetails = () => {
           ></div>
           <h3>Description: </h3>
           <h4>{product.description}</h4>
+          <AddToCart />
         </div>
       </div>
 

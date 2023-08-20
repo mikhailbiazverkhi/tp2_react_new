@@ -4,6 +4,9 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import fetchRequestCategories from "./products_tp2/js_fetchProductsFuncs/fetchRequestCategories";
 import SearchProduct from "./products_tp2/products/SearchProduct";
+import ButtonPanier from "./products_tp2/panier/buttonPanier";
+import ButtonListeDeSouaits from "./products_tp2/liste-de-souhaits/ButtonListeDeSouaits";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [categories, setCategories] = useState([]);
@@ -33,10 +36,21 @@ function Header() {
             <Nav.Link href="/coffees/">Coffees TP1</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+
         {window.location.pathname !== "/coffees/" &&
           window.location.pathname !== "/ajouter/" &&
           !window.location.pathname.includes("/coffee-details/") &&
-          window.location.pathname !== "/" && <SearchProduct />}
+          window.location.pathname !== "/" && (
+            <>
+              <Link to="/panier/">
+                <ButtonPanier />
+              </Link>
+              <Link to="/wish-list/">
+                <ButtonListeDeSouaits />
+              </Link>
+              <SearchProduct />
+            </>
+          )}
       </Navbar>
     </header>
   );

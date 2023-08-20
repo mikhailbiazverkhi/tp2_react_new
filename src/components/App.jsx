@@ -13,6 +13,8 @@ import CategoryDetails from "./products_tp2/categories/CategoryDetails";
 import ProductDetails from "./products_tp2/products/ProductDetails";
 import Page_categories from "./Page_categories";
 import Page_AllProducts from "./Page_AllProducts";
+import Page_panier from "./products_tp2/panier/Page_panier";
+import Page_listeDeSouaits from "./products_tp2/liste-de-souhaits/Page_listeDeSouaits";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +47,8 @@ function App() {
               <Route path="/coffees/" element={<Page_coffees />} />
               <Route path="/ajouter/" element={<AjouterCoffees />} />
               <Route path="/all-products/" element={<Page_AllProducts />} />
+              <Route path="/panier/" element={<Page_panier />} />
+              <Route path="/wish-list/" element={<Page_listeDeSouaits />} />
             </Routes>
             <Footer />
           </Container>
