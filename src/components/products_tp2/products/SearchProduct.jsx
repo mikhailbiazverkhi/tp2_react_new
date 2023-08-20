@@ -25,7 +25,9 @@ function SearchProduct() {
           />
         </Col>
         <Col xs="auto">
-          <Button type="submit">Submit</Button>
+          <Button type="submit" variant="info">
+            Aller
+          </Button>
         </Col>
       </Row>
     </Form>

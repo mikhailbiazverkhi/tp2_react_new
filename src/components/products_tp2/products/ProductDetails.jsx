@@ -31,7 +31,10 @@ const ProductDetails = () => {
 
       <div className="d-flex flex-wrap" style={{ gap: "10px" }}>
         <img className="image-product" src={product.image} />
-        <div className="d-flex flex-column" style={{ gap: "10px" }}>
+        <div
+          className="d-flex flex-column"
+          style={{ gap: "10px", maxWidth: "800px" }}
+        >
           <h3>Couleur: </h3>
           <div
             className="product-color"
