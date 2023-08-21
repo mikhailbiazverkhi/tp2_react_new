@@ -3,7 +3,6 @@ import { Button, Table } from "react-bootstrap";
 import ChangeQuantiteToCart from "./ChangeQuantiteToCart";
 import fetchDeleteProductFromCart from "./fetchDeleteProductFromCart";
 import fetchDeleteCart from "./fetchDeleteCart";
-// import ChangeTotalPrice from "./ChangeTotalPrice";
 
 function Page_panier() {
   const [cartProducts, setCartProducts] = useState([]);

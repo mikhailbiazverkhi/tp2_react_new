@@ -19,7 +19,7 @@ function AddToCart() {
 
   return (
     <>
-      <h3>Ajouter au panir: </h3>
+      <h3>Ajouter au panier: </h3>
       <div className="d-flex">
         <div style={{ padding: "0px 15px" }}>
           <h4>{quantity}</h4>

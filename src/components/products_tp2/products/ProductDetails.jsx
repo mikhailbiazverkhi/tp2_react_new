@@ -5,6 +5,7 @@ import { Spinner, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import fetchGetProduct from "../js_fetchProductsFuncs/fetchGetProduct";
 import AddToCart from "../panier/addToCart";
+import AddToList from "../liste-de-souhaits/AddToList";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -43,6 +44,7 @@ const ProductDetails = () => {
           <h3>Description: </h3>
           <h4>{product.description}</h4>
           <AddToCart />
+          <AddToList />
         </div>
       </div>
 
