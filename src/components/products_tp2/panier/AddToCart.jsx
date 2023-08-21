@@ -1,10 +1,11 @@
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import fetchAddToCart from "./fetchAddToCart";
 import { useParams } from "react-router-dom";
 
 function AddToCart() {
   const [quantity, setQuantity] = useState(1);
+  const [clicked, setClicked] = useState(false);
   const { id } = useParams();
 
   const handleIncrement = () => {
@@ -17,10 +18,20 @@ function AddToCart() {
     }
   };
 
+  useEffect(() => {
+    fetch("https://insta-api-api.0vxq7h.easypanel.host/cart")
+      .then((res) => res.json())
+      .then((products) => {
+        products.map((product) => {
+          if (id == product.id) setClicked(true);
+        });
+      });
+  }, [clicked, id]);
+
   return (
     <>
-      <h3>Ajouter au panier: </h3>
       <div className="d-flex">
+        <h3>Ajouter au panier: </h3>
         <div style={{ padding: "0px 15px" }}>
           <h4>{quantity}</h4>
         </div>
@@ -34,10 +45,19 @@ function AddToCart() {
 
         <Button
           className="mx-3"
-          variant="primary"
-          onClick={() => fetchAddToCart(id, quantity)}
+          variant="light"
+          onClick={() => {
+            if (!clicked) {
+              fetchAddToCart(id, quantity);
+              setClicked(true);
+            }
+          }}
         >
-          Ajouter
+          {clicked ? (
+            <i className="fa-solid fa-cart-shopping"></i>
+          ) : (
+            <i className="fa-regular fa-cart-shopping"></i>
+          )}
         </Button>
       </div>
     </>

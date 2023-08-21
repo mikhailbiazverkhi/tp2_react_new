@@ -11,7 +11,7 @@ const fetchAddToCart = (productId, quantity) => {
   });
 
   // window.location.reload();
-  history.back();
+  // history.back();
 };
 
 export default fetchAddToCart;

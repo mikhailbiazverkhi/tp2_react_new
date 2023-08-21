@@ -48,7 +48,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-end" style={{ width: "100%" }}>
         <Link to={`/category-details/${product.category.id}`}>
           <Button variant="secondary">Arrière</Button>
         </Link>

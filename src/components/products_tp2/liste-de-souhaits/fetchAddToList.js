@@ -10,7 +10,7 @@ const fetchAddToList = (productId) => {
   });
 
   // window.location.reload();
-  history.back();
+  // history.back();
 };
 
 export default fetchAddToList;

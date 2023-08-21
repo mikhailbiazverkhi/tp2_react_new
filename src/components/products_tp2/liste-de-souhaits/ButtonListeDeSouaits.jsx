@@ -6,8 +6,6 @@ function ButtonListeDeSouaits() {
       <Button variant="light">
         <i className="fa-regular fa-heart"></i>
       </Button>
-
-      {/* <i className="fa-solid fa-heart"></i> */}
     </>
   );
 }
