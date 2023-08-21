@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import fetchChangeProductQuality from "./fetchChangeProductQuality";
 
 // eslint-disable-next-line react/prop-types
@@ -16,10 +16,15 @@ function ChangeQuantiteToCart({ productPrice, productId, oldQuantity }) {
     }
   };
 
+  useEffect(() => {
+    fetchChangeProductQuality(productId, quantity);
+  }, [productId, quantity]);
+
   return (
     <>
       <div className="d-flex">
         <div style={{ padding: "0px 15px" }}>
+          <h5>Quantity: </h5>
           <h4>{quantity}</h4>
         </div>
 
@@ -30,16 +35,18 @@ function ChangeQuantiteToCart({ productPrice, productId, oldQuantity }) {
           +
         </Button>
 
-        <Button
+        {/* <Button
           className="mx-3"
           variant="primary"
           onClick={() => fetchChangeProductQuality(productId, quantity)}
         >
           Corriger
-        </Button>
+        </Button> */}
       </div>
       <div className="mt-5">
-        <h5>Total price: {productPrice * quantity} $</h5>
+        <h5 style={{ padding: "0px 15px" }}>
+          Total price: {productPrice * quantity} $
+        </h5>
       </div>
     </>
   );
