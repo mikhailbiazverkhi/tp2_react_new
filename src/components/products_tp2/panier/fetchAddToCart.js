@@ -9,7 +9,9 @@ const fetchAddToCart = (productId, quantity) => {
       quantity,
     }),
   });
-  window.location.reload();
+
+  // window.location.reload();
+  history.back();
 };
 
 export default fetchAddToCart;
