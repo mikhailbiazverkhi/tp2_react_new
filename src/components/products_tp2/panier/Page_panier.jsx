@@ -3,6 +3,7 @@ import { Button, Table } from "react-bootstrap";
 import ChangeQuantiteToCart from "./ChangeQuantiteToCart";
 import fetchDeleteProductFromCart from "./fetchDeleteProductFromCart";
 import fetchDeleteCart from "./fetchDeleteCart";
+import { Link } from "react-router-dom";
 
 function Page_panier() {
   const [cartProducts, setCartProducts] = useState([]);
@@ -33,6 +34,7 @@ function Page_panier() {
             <th>Image</th>
             <th>Quantity / Total price</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -58,13 +60,28 @@ function Page_panier() {
                 />
               </td>
               <td>
-                <Button
-                  className="mx-3"
-                  variant="danger"
-                  onClick={() => fetchDeleteProductFromCart(cartProduct.id)}
-                >
-                  Delete
-                </Button>
+                <div className="d-flex flex-column align-items-center">
+                  <Link to={`/checkout-form/${cartProduct.id}`}>
+                    <Button
+                      className="my-3"
+                      variant="primary"
+                      // onClick={() => fetchDeleteProductFromCart(cartProduct.id)}
+                    >
+                      Checkout
+                    </Button>
+                  </Link>
+                </div>
+              </td>
+              <td>
+                <div className="d-flex flex-column align-items-center">
+                  <Button
+                    className="my-3"
+                    variant="danger"
+                    onClick={() => fetchDeleteProductFromCart(cartProduct.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
               </td>
             </tr>
           ))}
