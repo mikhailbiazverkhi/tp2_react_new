@@ -29,7 +29,7 @@ const Page_AllProducts = () => {
 
   return (
     <>
-      <h1>All products</h1>
+      <h1 className="my-3">All products</h1>
       <AllProductColors setColorId={setColorId} />
       <Row>
         {colorId == null

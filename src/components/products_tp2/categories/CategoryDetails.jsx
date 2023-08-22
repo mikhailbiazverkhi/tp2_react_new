@@ -34,7 +34,7 @@ const CategoryDetails = () => {
 
   return (
     <>
-      <h1>{categoryName}</h1>
+      <h1 className="my-3">{categoryName}</h1>
       <AllProductColors setColorId={setColorId} />
       <Row>
         {colorId == null

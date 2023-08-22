@@ -16,12 +16,12 @@ const Page_categories = () => {
 
   return (
     <>
-      <h1 className="mb-3">All product categories</h1>
+      <h1 className="my-3">All product categories</h1>
       {!categories.length ? (
         <h1>No Categories found</h1>
       ) : (
         <>
-          <Row>
+          <Row style={{ border: "5px solid pink" }}>
             {categories.map((product) => (
               <Col className="colonne my-3" key={product.id}>
                 <Category

@@ -39,8 +39,7 @@ function Header() {
 
         {window.location.pathname !== "/coffees/" &&
           window.location.pathname !== "/ajouter/" &&
-          !window.location.pathname.includes("/coffee-details/") &&
-          window.location.pathname !== "/" && (
+          !window.location.pathname.includes("/coffee-details/") && (
             <>
               <Link to="/panier/">
                 <ButtonPanier />
