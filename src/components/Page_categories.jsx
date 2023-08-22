@@ -3,6 +3,7 @@
 import { Row, Col } from "react-bootstrap";
 import Category from "./products_tp2/categories/Category";
 import { useState, useEffect } from "react";
+import GetProduitsVus from "./products_tp2/produits-vus/GetProduitsVus";
 
 const Page_categories = () => {
   const [categories, setCategories] = useState([]);
@@ -15,24 +16,26 @@ const Page_categories = () => {
 
   return (
     <>
-      <h1>All product categories</h1>
+      <h1 className="mb-3">All product categories</h1>
       {!categories.length ? (
         <h1>No Categories found</h1>
       ) : (
         <>
-          {categories.map((product) => (
-            <Row key={product.id}>
-              <Col className="colonne my-3">
+          <Row>
+            {categories.map((product) => (
+              <Col className="colonne my-3" key={product.id}>
                 <Category
                   id={product.id}
                   name={product.name}
                   description={product.description}
                 />
               </Col>
-            </Row>
-          ))}
+            ))}
+          </Row>
         </>
       )}
+
+      <GetProduitsVus />
     </>
   );
 };
