@@ -18,7 +18,9 @@ function GetProduitsVus() {
   return (
     <>
       {produitsVus.length !== 0 && (
-        <h1 className="my-5 text-center">Liste des produits vus </h1>
+        <h2 className="my-5 text-center">
+          Liste des produits vus précédemment
+        </h2>
       )}
       <Row>
         {produitsVus.map((product) => (
@@ -34,37 +36,6 @@ function GetProduitsVus() {
           </Col>
         ))}
       </Row>
-
-      {/* <Carousel>
-        <Carousel.Item interval={3000}>
-          <div className="d-flex flex-row">
-              <Product {...produitsVus[0]} />
-             <Product {...produitsVus[1]} />
-            <Product {...produitsVus[2]} />
-            <Product {...produitsVus[3]} />
-            <Product {...produitsVus[4]} />
-          </div>
-        </Carousel.Item> 
-
-         <Carousel.Item interval={3000}>
-          <div className="d-flex flex-row">
-            <Product {...produitsVus[1]} />
-            <Product {...produitsVus[2]} />
-            <Product {...produitsVus[3]} />
-            <Product {...produitsVus[4]} />
-            <Product {...produitsVus[5]} />
-          </div>
-        </Carousel.Item>
-        <Carousel.Item interval={3000}>
-          <div className="d-flex flex-row">
-            <Product {...produitsVus[2]} />
-            <Product {...produitsVus[3]} />
-            <Product {...produitsVus[4]} />
-            <Product {...produitsVus[5]} />
-            <Product {...produitsVus[6]} />
-          </div>
-        </Carousel.Item>
-      </Carousel> */}
     </>
   );
 }
