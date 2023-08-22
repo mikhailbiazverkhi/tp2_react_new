@@ -5,7 +5,7 @@ const fetchDeleteProductFromCart = async (productId) => {
   );
 
   if (!apiRes.ok) {
-    throw new Error(`the coffee ${productId} is not deleted`);
+    throw new Error(`the product ${productId} is not deleted`);
   }
 
   window.location.reload();

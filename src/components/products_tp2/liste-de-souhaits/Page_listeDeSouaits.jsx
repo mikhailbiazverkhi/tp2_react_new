@@ -38,7 +38,6 @@ function Page_listeDeSouaits() {
             <th>#</th>
             <th>Product Name</th>
             <th>Image</th>
-            <th>Commentaires</th>
             <th></th>
           </tr>
         </thead>
@@ -56,13 +55,6 @@ function Page_listeDeSouaits() {
                   style={{ height: "150px", objectFit: "cover" }}
                   src={listProduct.image}
                 />
-              </td>
-              <td>
-                {/* <ChangeQuantiteToCart
-                  productPrice={cartProduct.price}
-                  productId={cartProduct.id}
-                  oldQuantity={cartProduct.quantity} 
-                />*/}
               </td>
               <td>
                 <Button
