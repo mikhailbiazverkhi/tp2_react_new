@@ -29,6 +29,7 @@ function GetProduitsVus() {
               <Product key={product.id} {...product} />
               <div className="d-flex justify-content-center my-3">
                 <CloseButton
+                  title="Supprimer"
                   onClick={() => fetchDeleteProductVus(product.id)}
                 />
               </div>

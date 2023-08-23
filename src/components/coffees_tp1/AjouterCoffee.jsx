@@ -49,7 +49,9 @@ function AjouterCoffee() {
         </Button>
 
         <Link to="/coffees/">
-          <Button variant="secondary">Arrière</Button>
+          <Button className="mx-5" variant="secondary">
+            Arrière
+          </Button>
         </Link>
       </Form>
     </>

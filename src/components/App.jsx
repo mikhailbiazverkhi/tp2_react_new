@@ -15,7 +15,8 @@ import Page_categories from "./Page_categories";
 import Page_AllProducts from "./Page_AllProducts";
 import Page_panier from "./products_tp2/panier/Page_panier";
 import Page_listeDeSouaits from "./products_tp2/liste-de-souhaits/Page_listeDeSouaits";
-import CheckoutForm from "./products_tp2/checkout/checkoutForm";
+import CheckoutForm from "./products_tp2/checkout/CheckoutForm";
+import Page_Achats from "./products_tp2/checkout/Page_Achats";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,7 +52,7 @@ function App() {
               <Route path="/panier/" element={<Page_panier />} />
               <Route path="/wish-list/" element={<Page_listeDeSouaits />} />
               <Route path="/checkout-form/" element={<CheckoutForm />} />
-              <Route path="/checkout-form/:id" element={<CheckoutForm />} />
+              <Route path="/achats/" element={<Page_Achats />} />
             </Routes>
             <Footer />
           </Container>

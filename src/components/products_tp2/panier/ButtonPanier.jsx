@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 function ButtonPanier() {
   return (
     <>
-      <Button variant="light">
+      <Button title="Panier" variant="light">
         <i className="fa-regular fa-cart-shopping"></i>
       </Button>
     </>

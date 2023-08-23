@@ -1,23 +1,31 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import fetchAddCheckout from "./fetchAddCheckout";
 
 function CheckoutForm() {
   const [validated, setValidated] = useState(false);
+  // const { productId } = useParams();
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
   return (
     <>
       <h1 className="my-3">Checkout</h1>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={(e) => {
+          const form = e.target;
+          const formData = new FormData(form);
+          if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+            formData.append("total", 1);
+            const serializedData = Object.fromEntries(formData.entries());
+            fetchAddCheckout(serializedData);
+          }
+          setValidated(true);
+        }}
+      >
         <Row className="mb-3">
           <Form.Group as={Col} md="4">
             <Form.Label>Contact Name</Form.Label>
@@ -158,8 +166,8 @@ function CheckoutForm() {
               required
               type="text"
               name="creditCardNumber"
-              placeholder="xxxx-xxxx-xxxx-xxxx"
-              defaultValue="xxxx-xxxx-xxxx-xxxx"
+              placeholder="xxxxyyyyzzzzhhhh"
+              defaultValue="4242424242424242"
             />
             <Form.Control.Feedback type="invalid">
               Entrez Credit Card Number
@@ -241,10 +249,12 @@ function CheckoutForm() {
           className="d-flex justify-content-between"
           style={{ width: "100%" }}
         >
-          <Button className="mt-3" type="submit">
-            Payer
-          </Button>
-          <Link to={`/panier/`}>
+          <Link to="/achats/">
+            <Button className="mt-3" type="submit">
+              Payer
+            </Button>
+          </Link>
+          <Link to="/panier/">
             <Button className="mt-3" variant="secondary">
               Arrière
             </Button>

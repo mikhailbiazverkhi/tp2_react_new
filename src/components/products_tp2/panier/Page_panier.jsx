@@ -14,16 +14,17 @@ function Page_panier() {
       .then((res) => setCartProducts(res));
   }, []);
 
-  // return <div>Page panier</div>;
   return (
     <>
       <div className="d-flex justify-content-around my-3">
         <h1>Panier</h1>
-        <div>
-          <Button variant="danger" onClick={fetchDeleteCart}>
-            Clean Cart
-          </Button>
-        </div>
+        {cartProducts.length > 1 && (
+          <div>
+            <Button className="my-3" variant="danger" onClick={fetchDeleteCart}>
+              Clean Cart
+            </Button>
+          </div>
+        )}
       </div>
 
       <Table striped bordered hover>
@@ -33,7 +34,6 @@ function Page_panier() {
             <th>Product Name</th>
             <th>Image</th>
             <th>Quantity / Total price</th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -61,19 +61,6 @@ function Page_panier() {
               </td>
               <td>
                 <div className="d-flex flex-column align-items-center">
-                  <Link to={`/checkout-form/${cartProduct.id}`}>
-                    <Button
-                      className="my-3"
-                      variant="primary"
-                      // onClick={() => fetchDeleteProductFromCart(cartProduct.id)}
-                    >
-                      Checkout
-                    </Button>
-                  </Link>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex flex-column align-items-center">
                   <Button
                     className="my-3"
                     variant="danger"
@@ -87,6 +74,15 @@ function Page_panier() {
           ))}
         </tbody>
       </Table>
+      {cartProducts.length > 0 && (
+        <div className="d-flex justify-content-end my-3 mx-4">
+          <Link to="/checkout-form/">
+            <Button className="my-3" variant="primary">
+              Checkout
+            </Button>
+          </Link>
+        </div>
+      )}
     </>
   );
 }

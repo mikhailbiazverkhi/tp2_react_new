@@ -25,11 +25,14 @@ function Page_listeDeSouaits() {
     <>
       <div className="d-flex justify-content-around my-3">
         <h1>Liste de souhaits</h1>
-        <div>
-          <Button variant="danger" onClick={fetchDeleteList}>
-            Clean Liste
-          </Button>
-        </div>
+
+        {listProducts.length > 1 && (
+          <div>
+            <Button variant="danger" onClick={fetchDeleteList}>
+              Clean Liste
+            </Button>
+          </div>
+        )}
       </div>
 
       <Table striped bordered hover>

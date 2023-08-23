@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 function ButtonAchats() {
   return (
     <>
-      <Button variant="light">
+      <Button title="Achats" variant="light">
         <i className="fa-regular fa-bag-shopping"></i>
       </Button>
     </>

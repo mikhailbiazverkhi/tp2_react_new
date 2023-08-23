@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 function ButtonListeDeSouaits() {
   return (
     <>
-      <Button variant="light">
+      <Button title="Liste de souaits" variant="light">
         <i className="fa-regular fa-heart"></i>
       </Button>
     </>

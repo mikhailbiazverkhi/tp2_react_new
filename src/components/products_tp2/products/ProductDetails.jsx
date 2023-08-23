@@ -44,6 +44,7 @@ const ProductDetails = () => {
               className="product-color"
               style={{ backgroundColor: product.color.hexCode }}
             ></div>
+            <h3>Price: {product.price} $</h3>
             <h3>Description: </h3>
             <h4>{product.description}</h4>
             <AddToCart />

@@ -7,6 +7,7 @@ import SearchProduct from "./products_tp2/products/SearchProduct";
 import ButtonPanier from "./products_tp2/panier/buttonPanier";
 import ButtonListeDeSouaits from "./products_tp2/liste-de-souhaits/ButtonListeDeSouaits";
 import { Link } from "react-router-dom";
+import ButtonAchats from "./products_tp2/checkout/ButtonAchats";
 
 function Header() {
   const [categories, setCategories] = useState([]);
@@ -41,6 +42,9 @@ function Header() {
           window.location.pathname !== "/ajouter/" &&
           !window.location.pathname.includes("/coffee-details/") && (
             <>
+              <Link to="/achats/">
+                <ButtonAchats />
+              </Link>
               <Link to="/panier/">
                 <ButtonPanier />
               </Link>

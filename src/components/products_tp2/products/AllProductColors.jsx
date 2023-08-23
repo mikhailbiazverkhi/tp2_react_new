@@ -17,6 +17,7 @@ const AllProductColors = ({ setColorId }) => {
     <div className="color-panel">
       {colors.map((color) => (
         <div
+          title="Quelle couleur?"
           className="color-point"
           key={color.id}
           id={color.id}
