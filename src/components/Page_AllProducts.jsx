@@ -29,9 +29,6 @@ const Page_AllProducts = () => {
     );
   }
 
-  console.log(minPrix);
-  console.log(maxPrix);
-
   const products = results.data;
 
   return (
