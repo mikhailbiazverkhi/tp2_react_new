@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import AllProductColors from "../products/AllProductColors";
 import { useState, useEffect, useContext } from "react";
 import SearchProductContext from "../SearchProductContext";
+import ProductPrixFiltre from "../products/ProductPrixFiltre";
 
 const CategoryDetails = () => {
   const { id } = useParams();
@@ -11,6 +12,9 @@ const CategoryDetails = () => {
   const [categoryName, setCategoryName] = useState("");
 
   const [products, setProducts] = useState([]);
+
+  const [minPrix, setMinPrix] = useState(0);
+  const [maxPrix, setMaxPrix] = useState(1000000);
 
   const { searchProduct } = useContext(SearchProductContext);
 
@@ -35,12 +39,19 @@ const CategoryDetails = () => {
   return (
     <>
       <h1 className="my-3">{categoryName}</h1>
-      <AllProductColors setColorId={setColorId} />
+      <div className="d-flex justify-content-center" style={{ gap: "15px" }}>
+        <h5>Filtrer par prix: </h5>
+        <ProductPrixFiltre setMinPrix={setMinPrix} setMaxPrix={setMaxPrix} />
+        <h5>Filtrer par couleur: </h5>
+        <AllProductColors setColorId={setColorId} />
+      </div>
       <Row>
         {colorId == null
           ? products.map(
               (product) =>
-                product.category.id == id && (
+                product.category.id == id &&
+                minPrix <= product.price &&
+                maxPrix >= product.price && (
                   <Col className="colonne my-3" key={product.id}>
                     <Product key={product.id} {...product} />
                   </Col>
@@ -49,6 +60,8 @@ const CategoryDetails = () => {
           : products.map(
               (product) =>
                 product.category.id == id &&
+                minPrix <= product.price &&
+                maxPrix >= product.price &&
                 product.color.id == colorId && (
                   <Col className="colonne my-3" key={product.id}>
                     <Product key={product.id} {...product} />

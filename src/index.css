@@ -71,9 +71,8 @@ footer {
   margin: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .color-point {
@@ -90,4 +89,12 @@ footer {
 .cart-button {
   object-fit: cover;
   height: 30px;
+}
+
+.form-prix {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }

@@ -7,11 +7,15 @@ import SearchProductContext from "./products_tp2/SearchProductContext";
 
 import fetchGetAllProductList from "./products_tp2/js_fetchProductsFuncs/fetchGetAllProductList";
 import AllProductColors from "./products_tp2/products/AllProductColors";
+import ProductPrixFiltre from "./products_tp2/products/ProductPrixFiltre";
 
 const Page_AllProducts = () => {
   const [colorId, setColorId] = useState(null);
   const { searchProduct } = useContext(SearchProductContext);
   const results = useQuery(["search", searchProduct], fetchGetAllProductList);
+
+  const [minPrix, setMinPrix] = useState(0);
+  const [maxPrix, setMaxPrix] = useState(1000000);
 
   if (results.isError) {
     return <h1>Error! Coffee details are not found</h1>;
@@ -25,21 +29,35 @@ const Page_AllProducts = () => {
     );
   }
 
+  console.log(minPrix);
+  console.log(maxPrix);
+
   const products = results.data;
 
   return (
     <>
       <h1 className="my-3">All products</h1>
-      <AllProductColors setColorId={setColorId} />
+      <div className="d-flex justify-content-center" style={{ gap: "15px" }}>
+        <h5>Filtrer par prix: </h5>
+        <ProductPrixFiltre setMinPrix={setMinPrix} setMaxPrix={setMaxPrix} />
+        <h5>Filtrer par couleur: </h5>
+        <AllProductColors setColorId={setColorId} />
+      </div>
       <Row>
         {colorId == null
-          ? products.map((product) => (
-              <Col className="colonne my-3" key={product.id}>
-                <Product key={product.id} {...product} />
-              </Col>
-            ))
+          ? products.map(
+              (product) =>
+                minPrix <= product.price &&
+                maxPrix >= product.price && (
+                  <Col className="colonne my-3" key={product.id}>
+                    <Product key={product.id} {...product} />
+                  </Col>
+                )
+            )
           : products.map(
               (product) =>
+                minPrix <= product.price &&
+                maxPrix >= product.price &&
                 product.color.id == colorId && (
                   <Col className="colonne my-3" key={product.id}>
                     <Product key={product.id} {...product} />
