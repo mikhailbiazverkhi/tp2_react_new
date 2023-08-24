@@ -1,15 +1,8 @@
-// function Page_listeDeSouaits() {
-//   return <div>Page liste de souaits</div>;
-// }
-// export default Page_listeDeSouaits;
-
 import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
-// import ChangeQuantiteToCart from "./ChangeQuantiteToCart";
-// import fetchDeleteProductFromCart from "./fetchDeleteProductFromCart";
 import fetchDeleteList from "./fetchDeleteList";
 import fetchDeleteProductFromList from "./fetchDeleteProductFromList";
-// import ChangeTotalPrice from "./ChangeTotalPrice";
+import fetchAddToCart from "../panier/fetchAddToCart";
 
 function Page_listeDeSouaits() {
   const [listProducts, setListProducts] = useState([]);
@@ -20,7 +13,6 @@ function Page_listeDeSouaits() {
       .then((res) => setListProducts(res));
   }, []);
 
-  // return <div>Page panier</div>;
   return (
     <>
       <div className="d-flex justify-content-around my-3">
@@ -60,6 +52,18 @@ function Page_listeDeSouaits() {
                 />
               </td>
               <td>
+                <Button
+                  className="mx-3"
+                  variant="primary"
+                  onClick={() => {
+                    fetchAddToCart(listProduct.id, 1);
+                    setTimeout(() => {
+                      fetchDeleteProductFromList(listProduct.id);
+                    }, 500);
+                  }}
+                >
+                  Add to cart
+                </Button>
                 <Button
                   className="mx-3"
                   variant="danger"
